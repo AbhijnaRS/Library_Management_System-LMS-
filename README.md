@@ -125,7 +125,8 @@ The application follows a client-server architecture.
                        |
                        v
                     MySQL
-Project Structure
+## Project Structure
+
 LMS-master/
 │
 ├── backend/
@@ -178,8 +179,8 @@ LMS-master/
 │   └── tsconfig.json
 │
 └── README.md
-Backend Setup
-Requirements
+## Backend Setup
+### Requirements
 
 Make sure the following are installed:
 
@@ -188,7 +189,7 @@ Maven
 MySQL
 Node.js and npm
 Git
-Database Setup
+## Database Setup
 
 Create a MySQL database:
 
@@ -210,7 +211,7 @@ spring.datasource.password=YOUR_PASSWORD
 
 Do not commit real database passwords or email credentials to GitHub.
 
-Backend Configuration
+## Backend Configuration
 
 The backend runs on:
 
@@ -250,11 +251,11 @@ The backend will start at:
 http://localhost:8081
 Frontend Setup
 
-Navigate to the frontend directory:
+## Navigate to the frontend directory:
 
 cd frontend
 
-Install dependencies:
+## Install dependencies:
 
 npm install
 
@@ -268,7 +269,7 @@ The frontend uses the backend API configured through:
 
 VITE_API_BASE
 
-Example:
+## Example:
 
 VITE_API_BASE=http://localhost:8081
 Frontend Commands
@@ -280,9 +281,9 @@ Run ESLint
 npm run lint
 Preview Production Build
 npm run preview
-Authentication Flow
+## Authentication Flow
 
-The application uses JWT-based authentication.
+## The application uses JWT-based authentication.
 
 User
  |
@@ -306,8 +307,10 @@ Authorized Application Features
 
 Protected routes are handled on the frontend using route guards, while backend APIs are secured using Spring Security.
 
-Main REST API Modules
-Authentication
+## Main REST API Modules
+
+### Authentication
+
 POST /api/auth/register
 POST /api/auth/login
 POST /api/auth/forgot-password
@@ -315,7 +318,8 @@ POST /api/auth/reset-password
 GET  /api/auth/profile
 PUT  /api/auth/profile
 GET  /api/auth/verify
-Books
+
+### Books
 POST   /api/books
 GET    /api/books
 GET    /api/books/search
@@ -323,33 +327,38 @@ GET    /api/books/{id}
 PUT    /api/books/{id}
 POST   /api/books/{id}/availability
 DELETE /api/books/{id}
-Borrowing
+
+### Borrowing
 POST /api/borrow
 POST /api/return
 GET  /api/members/{memberId}/history
 GET  /api/borrow
 GET  /api/borrow/overdue
-Penalties
+
+### Penalties
 POST /api/borrow/{borrowId}/penalty/compute
 POST /api/borrow/{borrowId}/penalty/pay
 GET  /api/members/{memberId}/penalties
 GET  /api/members/{memberId}/penalties/pending
 GET  /api/penalties/pending
 GET  /api/penalties
-Book Requests
+
+### Book Requests
 POST /api/issue-requests
 GET  /api/issue-requests/my
 GET  /api/issue-requests
 PATCH /api/issue-requests/{id}/approve
 PATCH /api/issue-requests/{id}/reject
 POST /api/issue-requests/bulk-approve
-Acquisition Requests
+
+### Acquisition Requests
 POST  /api/acquisition-requests
 GET   /api/acquisition-requests/mine
 GET   /api/acquisition-requests
 PATCH /api/acquisition-requests/{id}/approve
 PATCH /api/acquisition-requests/{id}/reject
-Waitlist
+
+### Waitlist
 POST   /api/waitlist/join/{bookId}
 DELETE /api/waitlist/leave/{bookId}
 GET    /api/waitlist/my-waitlist
@@ -358,20 +367,24 @@ GET    /api/waitlist/book/{bookId}
 GET    /api/waitlist/all
 PUT    /api/waitlist/priority/{waitlistId}
 GET    /api/waitlist/reservations
-Subscriptions
+
+### Subscriptions
 GET  /api/subscriptions/status
 POST /api/subscriptions/activate
 POST /api/subscriptions/extend
 GET  /api/subscriptions/packages
-Recommendations
+
+### Recommendations
 GET /api/recommendations/{userId}
 GET /api/recommendations/analytics/popular-books
 GET /api/recommendations/analytics/category-trends
 GET /api/recommendations/analytics/popular-books/timeseries
 GET /api/recommendations/analytics/popular-books/export
-Reports
+
+### Reports
 GET /api/reports/download
-Main Frontend Pages
+
+## Main Frontend Pages
 
 The React frontend contains pages for:
 
@@ -443,7 +456,7 @@ Subscription-related communication
 
 Email configuration should be provided through environment variables or secure configuration rather than committing credentials to the repository.
 
-Security
+## Security
 
 The application includes:
 
@@ -478,7 +491,9 @@ Out-of-stock books
 Borrowing errors
 Conflicts
 Internal server errors
-Development Workflow
+
+## Development Workflow
+
 User
  ↓
 React Frontend
@@ -494,7 +509,8 @@ Repository Layer
 Hibernate / JPA
  ↓
 MySQL Database
-Running the Complete Project
+
+## Running the Complete Project
 
 Start MySQL first.
 
@@ -511,7 +527,7 @@ npm run dev
 
 Then open the Vite URL displayed in the terminal.
 
-Important Notes
+## Important Notes
 The project is configured for local development.
 MySQL must be running before starting the backend.
 The frontend must be configured with the correct backend API URL.
@@ -519,7 +535,8 @@ Email functionality requires valid SMTP configuration.
 Do not commit .env files or passwords containing sensitive credentials.
 Do not commit the node_modules directory to GitHub.
 Do not commit generated build files such as dist or Maven target directories.
-Future Enhancements
+
+## Future Enhancements
 
 Possible future improvements include:
 
@@ -532,7 +549,8 @@ Enhanced notification system
 Advanced search and filtering
 Automated database backups
 Containerized deployment using Docker
-Author
+
+## Author
 
 Abhijna R S
 
