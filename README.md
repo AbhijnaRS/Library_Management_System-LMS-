@@ -128,57 +128,99 @@ The application follows a client-server architecture.
 ## Project Structure
 
 LMS-master/
+
 │
 ├── backend/
+
 │   │
 │   ├── src/
+
 │   │   └── main/
+
 │   │       ├── java/
+
 │   │       │   └── com/
+
 │   │       │       └── infy/
+
 │   │       │           └── lms/
+
 │   │       │               │
 │   │       │               ├── config/
+
 │   │       │               ├── controller/
+
 │   │       │               ├── dto/
+
 │   │       │               ├── enums/
+
 │   │       │               ├── exception/
+
 │   │       │               ├── model/
+
 │   │       │               ├── repository/
+
 │   │       │               ├── scheduler/
+
 │   │       │               ├── security/
+
 │   │       │               └── service/
+
 │   │       │
 │   │       └── resources/
+
 │   │           └── application.properties
+
 │   │
 │   ├── pom.xml
+
 │   ├── mvnw
+
 │   └── mvnw.cmd
+
 │
 ├── frontend/
+
 │   │
 │   ├── public/
+
 │   │   └── assets/
+
 │   │
 │   ├── src/
+
 │   │   ├── api/
+
 │   │   ├── assets/
+
 │   │   ├── components/
+
 │   │   ├── context/
+
 │   │   ├── hooks/
+
 │   │   ├── pages/
+
 │   │   ├── services/
+
 │   │   ├── types/
+
 │   │   ├── App.tsx
+
 │   │   ├── App.css
+
 │   │   └── main.tsx
+
 │   │
 │   ├── package.json
+
 │   ├── vite.config.ts
+
 │   └── tsconfig.json
+
 │
 └── README.md
+
 ## Backend Setup
 ### Requirements
 
@@ -286,23 +328,41 @@ npm run preview
 ## The application uses JWT-based authentication.
 
 User
+
  |
+ 
  v
+ 
 Register / Login
+
  |
+ 
  v
+ 
 Spring Boot Authentication API
+
  |
+ 
  v
+ 
 JWT Token
+
  |
+ 
  v
+ 
 Frontend Authentication Context
+
  |
+ 
  v
+ 
 Protected Routes
+
  |
+ 
  v
+ 
 Authorized Application Features
 
 Protected routes are handled on the frontend using route guards, while backend APIs are secured using Spring Security.
@@ -312,73 +372,117 @@ Protected routes are handled on the frontend using route guards, while backend A
 ### Authentication
 
 POST /api/auth/register
+
 POST /api/auth/login
+
 POST /api/auth/forgot-password
+
 POST /api/auth/reset-password
+
 GET  /api/auth/profile
+
 PUT  /api/auth/profile
+
 GET  /api/auth/verify
 
 ### Books
 POST   /api/books
+
 GET    /api/books
+
 GET    /api/books/search
+
 GET    /api/books/{id}
+
 PUT    /api/books/{id}
+
 POST   /api/books/{id}/availability
+
 DELETE /api/books/{id}
 
 ### Borrowing
 POST /api/borrow
+
 POST /api/return
+
 GET  /api/members/{memberId}/history
+
 GET  /api/borrow
+
 GET  /api/borrow/overdue
 
 ### Penalties
 POST /api/borrow/{borrowId}/penalty/compute
+
 POST /api/borrow/{borrowId}/penalty/pay
+
 GET  /api/members/{memberId}/penalties
+
 GET  /api/members/{memberId}/penalties/pending
+
 GET  /api/penalties/pending
+
 GET  /api/penalties
 
 ### Book Requests
 POST /api/issue-requests
+
 GET  /api/issue-requests/my
+
 GET  /api/issue-requests
+
 PATCH /api/issue-requests/{id}/approve
+
 PATCH /api/issue-requests/{id}/reject
+
 POST /api/issue-requests/bulk-approve
 
 ### Acquisition Requests
 POST  /api/acquisition-requests
+
 GET   /api/acquisition-requests/mine
+
 GET   /api/acquisition-requests
+
 PATCH /api/acquisition-requests/{id}/approve
+
 PATCH /api/acquisition-requests/{id}/reject
 
 ### Waitlist
 POST   /api/waitlist/join/{bookId}
+
 DELETE /api/waitlist/leave/{bookId}
+
 GET    /api/waitlist/my-waitlist
+
 GET    /api/waitlist/position/{bookId}
+
 GET    /api/waitlist/book/{bookId}
+
 GET    /api/waitlist/all
+
 PUT    /api/waitlist/priority/{waitlistId}
+
 GET    /api/waitlist/reservations
 
 ### Subscriptions
 GET  /api/subscriptions/status
+
 POST /api/subscriptions/activate
+
 POST /api/subscriptions/extend
+
 GET  /api/subscriptions/packages
 
 ### Recommendations
 GET /api/recommendations/{userId}
+
 GET /api/recommendations/analytics/popular-books
+
 GET /api/recommendations/analytics/category-trends
+
 GET /api/recommendations/analytics/popular-books/timeseries
+
 GET /api/recommendations/analytics/popular-books/export
 
 ### Reports
@@ -495,19 +599,33 @@ Internal server errors
 ## Development Workflow
 
 User
+
  ↓
+ 
 React Frontend
+
  ↓
+ 
 Axios API Client
+
  ↓
+ 
 Spring Boot REST Controller
+
  ↓
+ 
 Service Layer
+
  ↓
+ 
 Repository Layer
+
  ↓
+ 
 Hibernate / JPA
+
  ↓
+ 
 MySQL Database
 
 ## Running the Complete Project
@@ -541,13 +659,21 @@ Do not commit generated build files such as dist or Maven target directories.
 Possible future improvements include:
 
 Cloud deployment
+
 Advanced recommendation algorithms
+
 More detailed analytics
+
 Mobile application
+
 Online payment gateway integration
+
 Enhanced notification system
+
 Advanced search and filtering
+
 Automated database backups
+
 Containerized deployment using Docker
 
 ## Author
@@ -556,12 +682,4 @@ Abhijna R S
 
 Library Management System developed as an internship full-stack project demonstrating:
 
-Java
-Spring Boot
-Spring Security
-REST APIs
-JWT Authentication
-React
-TypeScript
-MySQL
-Full-Stack Web Development
+Java, Spring Boot, Spring Security, REST APIs, JWT Authentication, React, TypeScript, MySQL, Full-Stack Web Development
