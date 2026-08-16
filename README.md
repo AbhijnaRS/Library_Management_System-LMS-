@@ -1,346 +1,353 @@
+## Full-Stack Library Management System
 
-# Job-Application-Web-App
-
-## Job Application Management System
-
-A PHP-based web application that provides a platform for applicants to browse and apply for jobs and recruiters to post and manage job opportunities. The system uses MySQL for storing user, job, and application data and provides role-based access for recruiters and applicants.
+A full-stack **Library Management System** developed using React, TypeScript, Spring Boot, Hibernate/JPA, MySQL, and REST APIs. The system provides role-based functionality for managing users, books, borrowing, returns, book requests, subscriptions, waitlists, penalties, acquisitions, recommendations, and library reports.
 
 ## Features
 
 - User registration and login
-- Role-based access for Recruiters and Applicants
-- Session-based authentication
-- Applicant dashboard
-- Recruiter dashboard
-- Job posting
-- Job editing and deletion
-- Browse available jobs
-- Apply for jobs
-- CV upload functionality
-- View submitted CVs
-- Track application status
-- Shortlist applicants
-- Select applicants
-- Reject applications
-- Job status management
-- MySQL database integration
-- Logout functionality
+- JWT-based authentication
+- Role-based access control
+- User profile management
+- Book management and inventory
+- Search and browse books
+- Book borrowing and returning
+- Borrowing history
+- Book request management
+- Book waitlist and reservations
+- Subscription and membership management
+- Overdue penalty calculation and payment
+- Book acquisition requests
+- Personalized book recommendations
+- Popular books and category analytics
+- Library reports
+- Email verification and notifications
+- Admin and librarian management features
 
 ## Technologies Used
 
-- PHP
-- MySQL
+### Frontend
+
+- React
+- TypeScript
+- Vite
+- React Router
+- Axios
+- Recharts
+- Framer Motion
 - HTML
 - CSS
-- XAMPP
-- phpMyAdmin
+
+### Backend
+
+- Java 17
+- Spring Boot
+- Spring Data JPA
+- Hibernate
+- Spring Security
+- JWT
+- REST APIs
+- Maven
+- Lombok
+- JavaMail
+
+### Database
+
+- MySQL
+
+### Testing
+
+- JUnit
+- Mockito
+- H2 Database
+- Spring Security Test
 
 ## Project Structure
+
 ```
-Job-Application-Web-App/
+
+LMS-master/
 │
-├── home.html
-├── login.html
-├── login.php
-├── register.html
-├── register.php
+├── backend/
+│   ├── src/
+│   │   └── main/
+│   │       ├── java/
+│   │       │   └── com/infy/lms/
+│   │       │       ├── config/
+│   │       │       ├── controller/
+│   │       │       ├── dto/
+│   │       │       ├── enums/
+│   │       │       ├── exception/
+│   │       │       ├── model/
+│   │       │       ├── repository/
+│   │       │       ├── scheduler/
+│   │       │       ├── security/
+│   │       │       └── service/
+│   │       │
+│   │       └── resources/
+│   │           └── application.properties
+│   │
+│   ├── pom.xml
+│   ├── mvnw
+│   └── mvnw.cmd
 │
-├── applicant_dashboard.php
-├── apply_job.php
-├── apply_job_form.php
-│
-├── recruiter_dashboard.php
-├── create_job.php
-├── edit_job.php
-├── delete_job.php
-├── update_status.php
-│
-├── logout.php
-├── db_connection.php
-├── styles.css
-│
-├── our_DB.txt
-├── CV.txt
-│
-├── uploads/
-│   └── CV files
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── api/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── hooks/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   └── types/
+│   │
+│   ├── package.json
+│   ├── vite.config.ts
+│   └── tsconfig.json
 │
 └── README.md
+
 ```
+
 ## How It Works
+
 ```
-User Registration
-       ↓
-     Login
-       ↓
-   Role Check
-       ↓
- ┌─────┴─────┐
- ↓           ↓
-Applicant   Recruiter
- ↓           ↓
-Browse      Post Jobs
-Jobs        ↓
- ↓          Manage Jobs
-Apply       ↓
- ↓          View Applicants
-Upload CV   ↓
- ↓          Update Status
-Track Status
+
+User
+↓
+React Frontend
+↓
+REST API
+↓
+Spring Boot Controllers
+↓
+Service Layer
+↓
+Repository Layer
+↓
+Hibernate / JPA
+↓
+MySQL Database
+
 ```
-The application uses session-based authentication to identify the logged-in user and provide access according to the user's role.
 
-## User Roles
+The application uses **JWT-based authentication and Spring Security** to provide secure, role-based access to different library operations.
 
-### Applicant
+## Main Modules
 
-Applicants can:
+### User Management
 
-- Register and login
-- View available jobs
-- View job descriptions
-- Check required skills
-- View location and salary
-- Apply for jobs
-- Upload CV
-- View submitted applications
-- Track application status
-- Logout
+- User registration
+- Login and authentication
+- Email verification
+- Password reset
+- Profile management
+- Role-based access
 
-### Recruiter
+### Book Management
 
-Recruiters can:
+- Add books
+- View books
+- Search books
+- Update books
+- Delete books
+- Manage book availability
+- Manage book inventory
 
-- Register and login
-- Create job posts
-- Specify job description
-- Add required skills
-- Add job location
-- Add salary
-- Set application deadline
-- View their job posts
-- Edit job posts
-- Delete job posts
-- View applicants
-- View applicant CVs
-- Shortlist applicants
-- Select applicants
-- Reject applicants
-- Logout
+### Borrowing & Returns
+
+- Borrow books
+- Return books
+- Track borrowed books
+- View borrowing history
+- Manage overdue books
+- Calculate penalties
+
+### Book Requests
+
+- Request books
+- Approve or reject requests
+- View request history
+- Bulk request approval
+
+### Waitlist
+
+- Join book waitlist
+- Leave waitlist
+- View waitlist position
+- Manage reservations
+- Manage waitlist priority
+
+### Membership / Subscription
+
+- View membership packages
+- Activate membership
+- Extend membership
+- Check membership status
+
+### Penalties
+
+- Calculate overdue penalties
+- View pending penalties
+- Pay penalties
+- Waive penalties
+- View penalty history
+
+### Acquisition
+
+- Submit book acquisition requests
+- View requests
+- Approve requests
+- Reject requests
+
+### Recommendations & Analytics
+
+- Personalized book recommendations
+- Popular books
+- Category trends
+- Popular book analytics
+- Time-series analysis
+- Export analytics
+
+### Reports
+
+- Generate library reports
+- Download reports
+- View library statistics
 
 ## Database
 
-The application uses MySQL as the database.
+The application uses **MySQL** as the relational database.
 
-Database name:
+Database configuration:
 
-jp
-
-Main tables:
-
-users
-jobs
-applications
-
-### Users Table
-
-Stores user information including:
-
-- Username
-- Name
-- Email
-- Password
-- Role
-- Account creation date
-
-Supported roles:
-
-recruiter
-applicant
-
-### Jobs Table
-
-Stores job information including:
-
-- Job title
-- Job description
-- Required skills
-- Location
-- Salary
-- Application deadline
-- Job status
-- Recruiter ID
-- Creation date
-
-Job status:
-
-active
-closed
-
-### Applications Table
-
-Stores application information including:
-
-- Job ID
-- Applicant ID
-- CV path
-- Application status
-- Applicant name
-- Email
-- Phone
-- Application date
-
-Application status:
-
-pending
-shortlisted
-rejected
-selected
-
-## Database Relationship
 ```
-Users
-  │
-  ├───────────────┐
-  ↓               ↓
-Jobs          Applications
-  │               ↑
-  └───────────────┘
+
+Database: librarydb
+Host: localhost
+Port: 3306
+
 ```
-A recruiter can create multiple jobs, and applicants can submit applications for available jobs.
+
+The database schema is managed using **Hibernate/JPA** with Spring Boot.
 
 ## Installation
 
-### Requirements
+### Backend
 
-Install the following:
+Navigate to the backend directory:
 
-- XAMPP
-- PHP
-- MySQL
-- phpMyAdmin
-- Web Browser
+```
 
-## Database Setup
+cd backend
 
-1. Start Apache and MySQL from XAMPP.
-2. Open phpMyAdmin.
-3. Create a database named:
+```
 
-jp
+Run the Spring Boot application:
 
-4. Open the our_DB.txt file.
-5. Execute the SQL commands in phpMyAdmin.
-6. Verify that the required tables are created.
+### Windows
 
-## Database Configuration
+```
 
-Open:
+mvnw.cmd spring-boot:run
 
-db_connection.php
+```
 
-Configure the MySQL connection according to your local XAMPP setup.
+### Linux / macOS
 
-Example:
+```
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "jp";
+./mvnw spring-boot:run
 
-## Run the Project
+```
 
-Place the project folder inside the XAMPP htdocs directory:
+The backend runs on:
 
-C:\xampp\htdocs\Job-Application-Web-App
+```
 
-Start:
+[http://localhost:8081](http://localhost:8081)
 
-Apache
-MySQL
+```
 
-Then open the application in a browser:
+### Frontend
 
-http://localhost/Job-Application-Web-App/home.html
+Navigate to the frontend directory:
+
+```
+
+cd frontend
+
+```
+
+Install the required dependencies:
+
+```
+
+npm install
+
+```
+
+Start the development server:
+
+```
+
+npm run dev
+
+```
 
 ## Usage
 
-### Applicant Workflow
+1. Start the MySQL database.
+2. Configure the database credentials in the backend configuration.
+3. Start the Spring Boot backend.
+4. Start the React frontend.
+5. Register or log in to the application.
+6. Access features according to the assigned user role.
+7. Manage books, borrowing, returns, requests, memberships, penalties, and other library operations.
 
-1. Register as an Applicant.
-2. Login using your credentials.
-3. View available jobs.
-4. Select a job and click Apply.
-5. Upload your CV.
-6. Submit the application.
-7. View your applications from the Applicant Dashboard.
-8. Track the application status.
+## Authentication Flow
 
-### Recruiter Workflow
-
-1. Register as a Recruiter.
-2. Login using your credentials.
-3. Open the Recruiter Dashboard.
-4. Create a new job.
-5. Enter job title, description, skills, location, salary, and deadline.
-6. View posted jobs.
-7. Edit or delete job posts when required.
-8. View applicants for each job.
-9. View applicant CVs.
-10. Update application status to:
-
-Shortlisted
-Selected
-Rejected
-
-## Application Workflow
 ```
-Recruiter Creates Job
-        ↓
-Job Appears in Applicant Dashboard
-        ↓
-Applicant Selects Job
-        ↓
-Applicant Uploads CV
-        ↓
-Application Stored in MySQL
-        ↓
-Recruiter Views Application
-        ↓
-Recruiter Reviews CV
-        ↓
-Application Status Updated
-        ↓
-Pending / Shortlisted / Selected / Rejected
-```
-## CV Upload
 
-Applicants can upload their CV while applying for a job.
-
-Uploaded CV files are stored inside:
-
-uploads/
-
-Each uploaded CV is given a unique file name to avoid conflicts.
-
-## Authentication
-
-The application uses PHP sessions for authentication and role management.
-```
+Registration
+↓
+Email Verification
+↓
 Login
-  ↓
-Session Created
-  ↓
-Role Identified
-  ↓
-Applicant → Applicant Dashboard
-Recruiter → Recruiter Dashboard
+↓
+JWT Token
+↓
+Role-Based Access
+↓
+Library Management Features
+
 ```
-Unauthorized users are redirected to the login page.
+
+## API Testing
+
+The REST APIs can be tested using **Postman**.
+
+Major API modules include:
+
+```
+
+Authentication
+Books
+Borrowing
+Returns
+Book Requests
+Acquisition Requests
+Waitlist
+Subscriptions
+Penalties
+Recommendations
+Reports
+
+```
 
 ## Author
 
-This project is developed for internship purposes to demonstrate the implementation of a database-driven Job Application Web Application using PHP, MySQL, HTML, and CSS.
+This project is developed for **internship purposes** to demonstrate full-stack application development using **Java, Spring Boot, React, REST APIs, Hibernate/JPA, Spring Security, JWT, and MySQL**.
 
-Author: Abhijna R S
-```
+**Author:** Abhijna R S
