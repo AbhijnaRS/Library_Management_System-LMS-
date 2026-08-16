@@ -1,685 +1,346 @@
-## Full-Stack Library Management System
 
+# Job-Application-Web-App
 
-**BookVault** is a full-stack Library Management System designed to manage books, users, borrowing, returns, penalties, subscriptions, waitlists, book requests, acquisitions, recommendations, and library analytics.
+## Job Application Management System
 
-
-The application follows a modern client-server architecture with a **React + TypeScript frontend** and a **Spring Boot REST API backend**, backed by **MySQL**.
-
-
----
-
+A PHP-based web application that provides a platform for applicants to browse and apply for jobs and recruiters to post and manage job opportunities. The system uses MySQL for storing user, job, and application data and provides role-based access for recruiters and applicants.
 
 ## Features
 
-
-### User Authentication & Account Management
-
-
 - User registration and login
-- JWT-based authentication
-- Role-based access control
-- User profile management
-- Forgot password functionality
-- Password reset functionality
-- Email account verification
-- Secure authentication using Spring Security
+- Role-based access for Recruiters and Applicants
+- Session-based authentication
+- Applicant dashboard
+- Recruiter dashboard
+- Job posting
+- Job editing and deletion
+- Browse available jobs
+- Apply for jobs
+- CV upload functionality
+- View submitted CVs
+- Track application status
+- Shortlist applicants
+- Select applicants
+- Reject applications
+- Job status management
+- MySQL database integration
+- Logout functionality
 
+## Technologies Used
 
-### Book Management
+- PHP
+- MySQL
+- HTML
+- CSS
+- XAMPP
+- phpMyAdmin
 
-
-- Add new books
-- View all books
-- Search books
-- View book details
-- Update book information
-- Delete books
-- Update book availability
-- Manage book inventory
-- ISBN-based book management
-
-
-### Book Borrowing
-
-
-- Borrow books
-- Return books
-- View borrowing history
-- Track currently borrowed books
-- View overdue books
-- Calculate penalties for overdue books
-- Pay penalties
-- Waive penalties where permitted
-- Reconcile borrowing records
-
-
-### Book Requests
-
-
-- Request books
-- View personal book requests
-- Admin/librarian request management
-- Approve or reject requests
-- Bulk approval of book requests
-- Track request status
-- Monthly request statistics
-
-
-### Waitlist & Reservation Management
-
-
-- Join a book waitlist
-- Leave a waitlist
-- View personal waitlist
-- View waitlist position
-- Manage active waitlists
-- Update waitlist priority
-Technologies Used
-Frontend
-React
-TypeScript
-Vite
-React Router
-Axios
-Recharts
-Framer Motion
-HTML5
-CSS3
-Backend
-Java 17
-Spring Boot 3.5.7
-Spring Web
-Spring Data JPA
-Hibernate
-Spring Security
-Spring Validation
-Spring Mail
-JWT Authentication
-Maven
-Lombok
-Database
-MySQL
-Testing
-JUnit
-Mockito
-Spring Security Test
-H2 Database for integration testing
-System Architecture
-
-The application follows a client-server architecture.
-
-                React Frontend
-                       |
-                       | REST API
-                       v
-              Spring Boot Backend
-                       |
-          +------------+------------+
-          |            |            |
-      Controllers   Services    Security
-          |            |            |
-          +------------+------------+
-                       |
-                 Spring Data JPA
-                       |
-                       v
-                    MySQL
 ## Project Structure
-
-LMS-master/
-
+```
+Job-Application-Web-App/
 │
-├── backend/
-
-│   │
-│   ├── src/
-
-│   │   └── main/
-
-│   │       ├── java/
-
-│   │       │   └── com/
-
-│   │       │       └── infy/
-
-│   │       │           └── lms/
-
-│   │       │               │
-│   │       │               ├── config/
-
-│   │       │               ├── controller/
-
-│   │       │               ├── dto/
-
-│   │       │               ├── enums/
-
-│   │       │               ├── exception/
-
-│   │       │               ├── model/
-
-│   │       │               ├── repository/
-
-│   │       │               ├── scheduler/
-
-│   │       │               ├── security/
-
-│   │       │               └── service/
-
-│   │       │
-│   │       └── resources/
-
-│   │           └── application.properties
-
-│   │
-│   ├── pom.xml
-
-│   ├── mvnw
-
-│   └── mvnw.cmd
-
+├── home.html
+├── login.html
+├── login.php
+├── register.html
+├── register.php
 │
-├── frontend/
-
-│   │
-│   ├── public/
-
-│   │   └── assets/
-
-│   │
-│   ├── src/
-
-│   │   ├── api/
-
-│   │   ├── assets/
-
-│   │   ├── components/
-
-│   │   ├── context/
-
-│   │   ├── hooks/
-
-│   │   ├── pages/
-
-│   │   ├── services/
-
-│   │   ├── types/
-
-│   │   ├── App.tsx
-
-│   │   ├── App.css
-
-│   │   └── main.tsx
-
-│   │
-│   ├── package.json
-
-│   ├── vite.config.ts
-
-│   └── tsconfig.json
-
+├── applicant_dashboard.php
+├── apply_job.php
+├── apply_job_form.php
+│
+├── recruiter_dashboard.php
+├── create_job.php
+├── edit_job.php
+├── delete_job.php
+├── update_status.php
+│
+├── logout.php
+├── db_connection.php
+├── styles.css
+│
+├── our_DB.txt
+├── CV.txt
+│
+├── uploads/
+│   └── CV files
 │
 └── README.md
+```
+## How It Works
+```
+User Registration
+       ↓
+     Login
+       ↓
+   Role Check
+       ↓
+ ┌─────┴─────┐
+ ↓           ↓
+Applicant   Recruiter
+ ↓           ↓
+Browse      Post Jobs
+Jobs        ↓
+ ↓          Manage Jobs
+Apply       ↓
+ ↓          View Applicants
+Upload CV   ↓
+ ↓          Update Status
+Track Status
+```
+The application uses session-based authentication to identify the logged-in user and provide access according to the user's role.
 
-## Backend Setup
+## User Roles
+
+### Applicant
+
+Applicants can:
+
+- Register and login
+- View available jobs
+- View job descriptions
+- Check required skills
+- View location and salary
+- Apply for jobs
+- Upload CV
+- View submitted applications
+- Track application status
+- Logout
+
+### Recruiter
+
+Recruiters can:
+
+- Register and login
+- Create job posts
+- Specify job description
+- Add required skills
+- Add job location
+- Add salary
+- Set application deadline
+- View their job posts
+- Edit job posts
+- Delete job posts
+- View applicants
+- View applicant CVs
+- Shortlist applicants
+- Select applicants
+- Reject applicants
+- Logout
+
+## Database
+
+The application uses MySQL as the database.
+
+Database name:
+
+jp
+
+Main tables:
+
+users
+jobs
+applications
+
+### Users Table
+
+Stores user information including:
+
+- Username
+- Name
+- Email
+- Password
+- Role
+- Account creation date
+
+Supported roles:
+
+recruiter
+applicant
+
+### Jobs Table
+
+Stores job information including:
+
+- Job title
+- Job description
+- Required skills
+- Location
+- Salary
+- Application deadline
+- Job status
+- Recruiter ID
+- Creation date
+
+Job status:
+
+active
+closed
+
+### Applications Table
+
+Stores application information including:
+
+- Job ID
+- Applicant ID
+- CV path
+- Application status
+- Applicant name
+- Email
+- Phone
+- Application date
+
+Application status:
+
+pending
+shortlisted
+rejected
+selected
+
+## Database Relationship
+```
+Users
+  │
+  ├───────────────┐
+  ↓               ↓
+Jobs          Applications
+  │               ↑
+  └───────────────┘
+```
+A recruiter can create multiple jobs, and applicants can submit applications for available jobs.
+
+## Installation
+
 ### Requirements
 
-Make sure the following are installed:
+Install the following:
 
-Java JDK 17
-Maven
-MySQL
-Node.js and npm
-Git
+- XAMPP
+- PHP
+- MySQL
+- phpMyAdmin
+- Web Browser
+
 ## Database Setup
 
-Create a MySQL database:
+1. Start Apache and MySQL from XAMPP.
+2. Open phpMyAdmin.
+3. Create a database named:
 
-CREATE DATABASE librarydb;
+jp
 
-The Spring Boot backend connects to MySQL using the configured database connection.
+4. Open the our_DB.txt file.
+5. Execute the SQL commands in phpMyAdmin.
+6. Verify that the required tables are created.
 
-Update the database configuration in:
+## Database Configuration
 
-backend/src/main/resources/application.properties
+Open:
 
-Use your own MySQL username and password.
+db_connection.php
+
+Configure the MySQL connection according to your local XAMPP setup.
 
 Example:
 
-spring.datasource.url=jdbc:mysql://localhost:3306/librarydb
-spring.datasource.username=YOUR_USERNAME
-spring.datasource.password=YOUR_PASSWORD
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "jp";
 
-Do not commit real database passwords or email credentials to GitHub.
+## Run the Project
 
-## Backend Configuration
+Place the project folder inside the XAMPP htdocs directory:
 
-The backend runs on:
+C:\xampp\htdocs\Job-Application-Web-App
 
-http://localhost:8081
+Start:
 
-The application uses:
-
-Spring Data JPA
+Apache
 MySQL
-Spring Security
-JWT authentication
-Spring Mail
-File upload support
 
-Maximum file upload size:
-
-10 MB
-Run the Backend
-
-Navigate to the backend directory:
-
-cd backend
-
-Using Maven Wrapper:
-
-Windows
-mvnw.cmd spring-boot:run
-Linux / macOS
-./mvnw spring-boot:run
-
-Or using Maven:
-
-mvn spring-boot:run
-
-The backend will start at:
-
-http://localhost:8081
-Frontend Setup
-
-## Navigate to the frontend directory:
-
-cd frontend
-
-## Install dependencies:
-
-npm install
-
-Start the development server:
-
-npm run dev
-
-The Vite development server will display the local URL in the terminal.
-
-The frontend uses the backend API configured through:
-
-VITE_API_BASE
-
-## Example:
-
-VITE_API_BASE=http://localhost:8081
-Frontend Commands
-Start Development Server
-npm run dev
-Build the Project
-npm run build
-Run ESLint
-npm run lint
-Preview Production Build
-npm run preview
-## Authentication Flow
-
-## The application uses JWT-based authentication.
-
-User
-
- |
- 
- v
- 
-Register / Login
-
- |
- 
- v
- 
-Spring Boot Authentication API
-
- |
- 
- v
- 
-JWT Token
-
- |
- 
- v
- 
-Frontend Authentication Context
-
- |
- 
- v
- 
-Protected Routes
-
- |
- 
- v
- 
-Authorized Application Features
-
-Protected routes are handled on the frontend using route guards, while backend APIs are secured using Spring Security.
-
-## Main REST API Modules
-
-### Authentication
-
-POST /api/auth/register
-
-POST /api/auth/login
-
-POST /api/auth/forgot-password
-
-POST /api/auth/reset-password
-
-GET  /api/auth/profile
-
-PUT  /api/auth/profile
-
-GET  /api/auth/verify
-
-### Books
-POST   /api/books
-
-GET    /api/books
-
-GET    /api/books/search
-
-GET    /api/books/{id}
-
-PUT    /api/books/{id}
-
-POST   /api/books/{id}/availability
-
-DELETE /api/books/{id}
-
-### Borrowing
-POST /api/borrow
-
-POST /api/return
-
-GET  /api/members/{memberId}/history
-
-GET  /api/borrow
-
-GET  /api/borrow/overdue
-
-### Penalties
-POST /api/borrow/{borrowId}/penalty/compute
-
-POST /api/borrow/{borrowId}/penalty/pay
-
-GET  /api/members/{memberId}/penalties
-
-GET  /api/members/{memberId}/penalties/pending
-
-GET  /api/penalties/pending
-
-GET  /api/penalties
-
-### Book Requests
-POST /api/issue-requests
-
-GET  /api/issue-requests/my
-
-GET  /api/issue-requests
-
-PATCH /api/issue-requests/{id}/approve
-
-PATCH /api/issue-requests/{id}/reject
-
-POST /api/issue-requests/bulk-approve
-
-### Acquisition Requests
-POST  /api/acquisition-requests
-
-GET   /api/acquisition-requests/mine
-
-GET   /api/acquisition-requests
-
-PATCH /api/acquisition-requests/{id}/approve
-
-PATCH /api/acquisition-requests/{id}/reject
-
-### Waitlist
-POST   /api/waitlist/join/{bookId}
-
-DELETE /api/waitlist/leave/{bookId}
-
-GET    /api/waitlist/my-waitlist
-
-GET    /api/waitlist/position/{bookId}
-
-GET    /api/waitlist/book/{bookId}
-
-GET    /api/waitlist/all
-
-PUT    /api/waitlist/priority/{waitlistId}
-
-GET    /api/waitlist/reservations
-
-### Subscriptions
-GET  /api/subscriptions/status
-
-POST /api/subscriptions/activate
-
-POST /api/subscriptions/extend
-
-GET  /api/subscriptions/packages
-
-### Recommendations
-GET /api/recommendations/{userId}
-
-GET /api/recommendations/analytics/popular-books
-
-GET /api/recommendations/analytics/category-trends
-
-GET /api/recommendations/analytics/popular-books/timeseries
-
-GET /api/recommendations/analytics/popular-books/export
-
-### Reports
-GET /api/reports/download
-
-## Main Frontend Pages
-
-The React frontend contains pages for:
-
-General
-Landing Page
-About
-Contact
+Then open the application in a browser:
+
+http://localhost/Job-Application-Web-App/home.html
+
+## Usage
+
+### Applicant Workflow
+
+1. Register as an Applicant.
+2. Login using your credentials.
+3. View available jobs.
+4. Select a job and click Apply.
+5. Upload your CV.
+6. Submit the application.
+7. View your applications from the Applicant Dashboard.
+8. Track the application status.
+
+### Recruiter Workflow
+
+1. Register as a Recruiter.
+2. Login using your credentials.
+3. Open the Recruiter Dashboard.
+4. Create a new job.
+5. Enter job title, description, skills, location, salary, and deadline.
+6. View posted jobs.
+7. Edit or delete job posts when required.
+8. View applicants for each job.
+9. View applicant CVs.
+10. Update application status to:
+
+Shortlisted
+Selected
+Rejected
+
+## Application Workflow
+```
+Recruiter Creates Job
+        ↓
+Job Appears in Applicant Dashboard
+        ↓
+Applicant Selects Job
+        ↓
+Applicant Uploads CV
+        ↓
+Application Stored in MySQL
+        ↓
+Recruiter Views Application
+        ↓
+Recruiter Reviews CV
+        ↓
+Application Status Updated
+        ↓
+Pending / Shortlisted / Selected / Rejected
+```
+## CV Upload
+
+Applicants can upload their CV while applying for a job.
+
+Uploaded CV files are stored inside:
+
+uploads/
+
+Each uploaded CV is given a unique file name to avoid conflicts.
+
+## Authentication
+
+The application uses PHP sessions for authentication and role management.
+```
 Login
-Registration
-Forgot Password
-Reset Password
-Student / User
-Student Dashboard
-Student Home
-Student Profile
-Book Catalog
-Borrowed Books
-Returns
-Book Requests
-Fines
-Membership Requests
-Pro Membership
-Waitlist
-Librarian
-Library Dashboard
-Manage Books
-Add Books
-Issue Books
-Returns
-Members
-Membership Requests
-Penalties
-Reports
-Admin
-Admin Dashboard
-User Management
-Books Management
-Books Catalog
-Acquisition Requests
-Requests Management
-Returns
-Penalties
-Waitlist Management
-Reports
-AI Analytics
-System Settings
-Automated Background Tasks
-
-The backend includes scheduled services for library operations such as:
-
-Overdue processing
-Subscription expiry handling
-Waitlist management
-Reservation cleanup
-
-These schedulers help automate recurring library management operations.
-
-Email Services
-
-The application includes email functionality for account-related and library-related workflows.
-
-Email functionality includes:
-
-Account verification
-Password reset
-Library notifications
-Request-related communication
-Subscription-related communication
-
-Email configuration should be provided through environment variables or secure configuration rather than committing credentials to the repository.
-
-## Security
-
-The application includes:
-
-Spring Security
-JWT authentication
-Token authentication filter
-Role-based authorization
-Protected frontend routes
-Password reset flow
-Email verification
-Global exception handling
-
-Sensitive configuration such as:
-
-Database passwords
-Email passwords
-JWT secrets
-API credentials
-
-should never be committed to GitHub.
-
-Error Handling
-
-The backend includes centralized exception handling with custom exceptions for situations such as:
-
-Bad requests
-Unauthorized access
-Resource not found
-Book not found
-Duplicate ISBN
-Out-of-stock books
-Borrowing errors
-Conflicts
-Internal server errors
-
-## Development Workflow
-
-User
-
- ↓
- 
-React Frontend
-
- ↓
- 
-Axios API Client
-
- ↓
- 
-Spring Boot REST Controller
-
- ↓
- 
-Service Layer
-
- ↓
- 
-Repository Layer
-
- ↓
- 
-Hibernate / JPA
-
- ↓
- 
-MySQL Database
-
-## Running the Complete Project
-
-Start MySQL first.
-
-Then start the backend:
-
-cd backend
-mvnw.cmd spring-boot:run
-
-Open another terminal and start the frontend:
-
-cd frontend
-npm install
-npm run dev
-
-Then open the Vite URL displayed in the terminal.
-
-## Important Notes
-The project is configured for local development.
-MySQL must be running before starting the backend.
-The frontend must be configured with the correct backend API URL.
-Email functionality requires valid SMTP configuration.
-Do not commit .env files or passwords containing sensitive credentials.
-Do not commit the node_modules directory to GitHub.
-Do not commit generated build files such as dist or Maven target directories.
-
-## Future Enhancements
-
-Possible future improvements include:
-
-Cloud deployment
-
-Advanced recommendation algorithms
-
-More detailed analytics
-
-Mobile application
-
-Online payment gateway integration
-
-Enhanced notification system
-
-Advanced search and filtering
-
-Automated database backups
-
-Containerized deployment using Docker
+  ↓
+Session Created
+  ↓
+Role Identified
+  ↓
+Applicant → Applicant Dashboard
+Recruiter → Recruiter Dashboard
+```
+Unauthorized users are redirected to the login page.
 
 ## Author
 
-Abhijna R S
+This project is developed for internship purposes to demonstrate the implementation of a database-driven Job Application Web Application using PHP, MySQL, HTML, and CSS.
 
-Library Management System developed as an internship full-stack project demonstrating:
-
-Java, Spring Boot, Spring Security, REST APIs, JWT Authentication, React, TypeScript, MySQL, Full-Stack Web Development
+Author: Abhijna R S
+```
